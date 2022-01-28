@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <style>
+      #heading{
+        text-align: center;
+        font-size: 60px;
+        font-family: sofia;
+        color: white;
+      }
+      #inputboxes{
+        text-align: center;
+        font-size: 40;
+        color: white;
+      }
+      #bodystyle{
+        background: linear-gradient(45deg, #FC466B 0%, #3F5EFB 100%);
+        
+      }
+      .pulse:hover, .pulse:focus {
+	 animation: pulse 1s;
+	 box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+ @keyframes pulse {
+	 0% {
+		 box-shadow: 0 0 0 0 var(--hover);
+	}
+}
+.pulse {
+	 --color: white;
+	 --hover: white;
+}
+      button {
+  background: none;
+  border: 2px solid;
+  font: inherit;  
+  line-height: 1;
+  margin: 0.5em;
+  padding: 4px;
+  text-align: center;
+  color: white;
+  margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 5%;
+        margin-bottom: 0%;
+}
+#answer{
+  text-align: center;
+  font-family: inherit;
+  color: white;
+  font-size: 30;
+}
+.form__group {
+	 position: relative;
+	 padding: 15px 0 0;
+	 margin-top: 10px;
+	 width: 50%;
+}
+ .form__field {
+	 font-family: inherit;
+	 width: 100%;
+	 border: 0;
+	 border-bottom: 2px solid #9b9b9b;
+	 outline: 0;
+	 font-size: 1.3rem;
+	 color: #fff;
+	 padding: 7px 0;
+	 background: transparent;
+	 transition: border-color 0.2s;
+}
+ .form__field::placeholder {
+	 color: transparent;
+}
+ .form__field:placeholder-shown ~ .form__label {
+	 font-size: 1.3rem;
+	 cursor: text;
+	 top: 20px;
+}
+ .form__label {
+	 position: absolute;
+	 top: 0;
+	 display: block;
+	 transition: 0.2s;
+	 font-size: 1rem;
+	 color: #9b9b9b;
+}
+ .form__field:focus {
+	 padding-bottom: 6px;
+	 font-weight: 700;
+	 border-width: 3px;
+	 border-image: linear-gradient(to right, #FC466B, #3F5EFB);
+	 border-image-slice: 1;
+}
+ .form__field:focus ~ .form__label {
+	 position: absolute;
+	 top: 0;
+	 display: block;
+	 transition: 0.2s;
+	 font-size: 1rem;
+	 color: #3F5EFB;
+	 font-weight: 700;
+}
+/* reset input */
+ .form__field:required, .form__field:invalid {
+	 box-shadow: none;
+}
+/* demo */
+ body {
+	 font-family: 'Poppins', sans-serif;
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+	 align-items: center;
+	 min-height: 100vh;
+	 font-size: 1.5rem;
+	 background-color: #222;
+   
+}
+ 
+    </style>
+  </head>
+  <body id="bodystyle">
+    <div id= "heading" >
+      Calculate Area of Rectangle <br /><br />
+    </div>
+    <div class="form__group field">
+      <input id="Length" type="number" type="input" class="form__field" placeholder="Name" name="name"  required />
+      <label for="name" class="form__label">Enter Length</label>
+    </div>
+    <div class="form__group field">
+      <input id="Breadth" type="number" type="input" class="form__field" placeholder="Name" name="name"  required />
+      <label for="name" class="form__label">Enter Breadth</label>
+    </div> 
+  </div>
+  <br>
+    <div id="button">
+      <button onclick="runClick()" class="pulse">
+       Calculate area 
+      </button>
+    <br><br>
+    </div>
+    <div id="answer">
+      Answer
+    </div>
+    
+    <div id="answer" style="border-top: 1px solid yellowgreen">
+    </div> 
+  </body>
+  <script>
+    function calculate_area(Length, Breadth) {
+    return Length * Breadth;    /*The function returns the area of the rectangle*/
+  }
+    function runClick(){
+    let Length = document.getElementById("Length").value;
+    let Breadth = document.getElementById("Breadth").value;
+    let area = calculate_area(Length, Breadth);
+    document.getElementById("answer").innerHTML = `<div style="color:White;"> <div style="font-size:50px"> ` + area  + `</div></div>`;
+    }
+  </script>
+</html>
